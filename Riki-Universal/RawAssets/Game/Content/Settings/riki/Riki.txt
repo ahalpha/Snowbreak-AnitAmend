@@ -1409,9 +1409,9 @@ Type	Id	UnLockTime	UnLockTimeOversea	Condition	TitleImg	Icon	PeaceIcon	Extension
 10	10201			{{2,51781}}				riki.CG_DLC36	1501374			riki.CG_DLC36_name2			339	
 10	10202			{{2,51787}}				riki.CG_DLC36	1501375			riki.CG_DLC36_name3			340	
 10	10203			{{2,51788}}				riki.CG_DLC36	1501376			riki.CG_DLC36_name4			341	
-10	10204			{{2,51788}}				riki.CG_DLC36	3501409			riki.CG_DLC36_name5			342	1
+10	10204			{{2,51788}}				riki.CG_DLC36	3501400	/Game/Plot/CgPlot/Dlc36_Plots/PoltAsset/scene/PlotCG_0204_riki.PlotCG_0204_riki		riki.CG_DLC36_name5			342	1
 10	10205			{{2,51789}}				riki.CG_DLC36	1501377			riki.CG_DLC36_name6			343	
-10	10206			{{2,51789}}				riki.CG_DLC36	3501410			riki.CG_DLC36_name7			344	1
+10	10206			{{2,51789}}				riki.CG_DLC36	3501401	/Game/Plot/CgPlot/Dlc36_Plots/PoltAsset/scene/PlotCG_0206_riki.PlotCG_0206_riki		riki.CG_DLC36_name7			344	1
 10	10207			{{2,51785}}				riki.CG_DLC36	1501378			riki.CG_DLC36_name8			345	
 10	10208			{{2,51790}}				riki.CG_DLC36	1501379			riki.CG_DLC36_name9			346	
 10	10209			{{2,51789}}				riki.CG_DLC36	1501380			riki.CG_DLC36_name10			347	
