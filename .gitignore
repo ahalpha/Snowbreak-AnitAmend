@@ -1,2 +1,4 @@
+scripts/deps/
+.temp/
 .dist/
 build.ps1

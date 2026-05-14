@@ -176,3 +176,43 @@ Write-Host "All patches finished."
 ```
 
 </details>
+
+---
+
+## iOS Build
+
+The `scripts/` directory contains a pipeline for converting and packaging patches for **iOS** (ASTC texture format).
+
+### Scripts
+
+- **`convert_to_astc.ps1`** — Converts `Model-WindowsNoEditor` and `2D-WindowsNoEditor` textures from BC7/DXT to ASTC 4x4, producing `Model-IOS/` and `2D-IOS/` directories in the project root.
+- **`export_paks.ps1`** — Packs all patch directories (including the converted iOS ones) into `.pak` files under `.dist/`.
+
+Dependencies (`scripts/deps/`) are downloaded and extracted automatically on first run:
+
+- [UE4-DDS-Tools v0.6.1](https://github.com/matyalatte/UE4-DDS-Tools) — uasset texture import/export
+- [astc-encoder v5.4.0](https://github.com/ARM-software/astc-encoder) — ASTC texture compression
+- [repak v0.2.3](https://github.com/trumank/repak) — Unreal Engine pak packaging
+
+### Usage
+
+**Step 1 — Convert textures to ASTC** (required for iOS model and 2D patches):
+
+```powershell
+.\scripts\convert_to_astc.ps1
+```
+
+Optional parameters:
+| Parameter | Default | Description |
+|---|---|---|
+| `-AstcBlockSize` | `4x4` | ASTC block size (`4x4`, `6x6`, `8x8`, …) |
+| `-AstcQuality` | `medium` | Encoder quality (`fastest`, `fast`, `medium`, `thorough`, `exhaustive`) |
+| `-OutBaseDir` | project root | Base directory for `Model-IOS/` and `2D-IOS/` output |
+
+**Step 2 — Export all patches as pak files:**
+
+```powershell
+.\scripts\export_paks.ps1
+```
+
+Output is written to `.dist/`. All 10 patches are packed — the 8 original patches plus `Model-IOS` and `2D-IOS`. iOS patches are skipped automatically if Step 1 has not been run.
