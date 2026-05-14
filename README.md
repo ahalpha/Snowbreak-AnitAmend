@@ -78,7 +78,14 @@ Used to patch dormitory-related content.
 - [x] Includes spa model patches
 - [x] Includes Vidya furniture animation patches
 
-*Currently, only the above 7 patch types are available here.*
+#### Riki — Gallery Patch
+Used to patch riki-related content.
+
+- [x] Includes patches for some static skin portraits
+- [x] Includes patches for some story CGs, illustrations, and Live2D
+- [!] This patch may encounter issues with future version updates
+
+*Currently, only the above 8 patch types are available here.*
 
 ## Build
 
