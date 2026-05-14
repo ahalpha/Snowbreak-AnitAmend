@@ -83,6 +83,7 @@
 ## 自行构建
 
 1. 安装任意版本的 [虚幻引擎](https://www.unrealengine.com/download)。
+1. 安装 [虚幻引擎](https://www.unrealengine.com/download)。  
    *你可以选择与游戏相同的 **4.26** 版本，也可以选择较新的 **5.5** 版本。*  
    *本项目构建过程只需要使用其中的 `UnrealPak.exe`。*
    
