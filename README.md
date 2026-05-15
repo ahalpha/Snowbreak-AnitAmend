@@ -2,7 +2,7 @@
 
 ### PlotSp-Universal
 
-Used to fix Reflection of Valor Files 1 ~ 3
+Used to fix Reflection of Valor Files 1 ~ 3  
 用于修补镜中烬火档案 1 ~ 3
 
 > [!IMPORTANT]
