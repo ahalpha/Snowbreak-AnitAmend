@@ -1,0 +1,135 @@
+[
+  {
+    "Type": "GameTask",
+    "Name": "Task16_st11",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'GameTask'",
+    "Package": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11",
+    "Properties": {
+      "LevelCountDownTime": -1,
+      "RootNode": {
+        "ObjectName": "GameTaskComposite_Flow'Task16_st11:GameTaskComposite_Flow_0'",
+        "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.1"
+      },
+      "Comment": "Game Task",
+      "TaskGraph": null,
+      "NodeInnerIDMap": [
+        {
+          "Key": "0",
+          "Value": {
+            "ObjectName": "GameTaskComposite_Flow'Task16_st11:GameTaskComposite_Flow_0'",
+            "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.1"
+          }
+        },
+        {
+          "Key": "1",
+          "Value": null
+        },
+        {
+          "Key": "2",
+          "Value": null
+        },
+        {
+          "Key": "3",
+          "Value": null
+        },
+        {
+          "Key": "4",
+          "Value": null
+        },
+        {
+          "Key": "5",
+          "Value": null
+        },
+        {
+          "Key": "6",
+          "Value": {
+            "ObjectName": "PlayPlotEvent_C'Task16_st11:PlayPlotEvent_C_1'",
+            "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.2"
+          }
+        },
+        {
+          "Key": "7",
+          "Value": null
+        },
+        {
+          "Key": "8",
+          "Value": null
+        },
+        {
+          "Key": "9",
+          "Value": null
+        },
+        {
+          "Key": "10",
+          "Value": null
+        },
+        {
+          "Key": "11",
+          "Value": null
+        },
+        {
+          "Key": "12",
+          "Value": null
+        },
+        {
+          "Key": "13",
+          "Value": null
+        },
+        {
+          "Key": "14",
+          "Value": null
+        }
+      ]
+    }
+  },
+  {
+    "Type": "GameTaskComposite_Flow",
+    "Name": "GameTaskComposite_Flow_0",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'GameTaskComposite_Flow'",
+    "Outer": {
+      "ObjectName": "GameTask'Task16_st11'",
+      "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.0"
+    },
+    "Properties": {
+      "EnterEvents": [
+        {
+          "ObjectName": "PlayPlotEvent_C'Task16_st11:PlayPlotEvent_C_1'",
+          "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.2"
+        }
+      ],
+      "GameTaskAsset": {
+        "ObjectName": "GameTask'Task16_st11'",
+        "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.0"
+      }
+    }
+  },
+  {
+    "Type": "PlayPlotEvent_C",
+    "Name": "PlayPlotEvent_C_1",
+    "Flags": "RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "BlueprintGeneratedClass'Game/Plugins/GameTask/Content/Events/PlayPlotEvent.PlayPlotEvent_C'",
+    "Outer": {
+      "ObjectName": "GameTask'Task16_st11'",
+      "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.0"
+    },
+    "Template": {
+      "ObjectName": "PlayPlotEvent_C'Default__PlayPlotEvent_C'",
+      "ObjectPath": "Game/Plugins/GameTask/Content/Events/PlayPlotEvent.4"
+    },
+    "Properties": {
+      "剧情结束时退出关卡": true,
+      "PlotID": 508101,
+      "InnerID": 6,
+      "GameTaskAsset": {
+        "ObjectName": "GameTask'Task16_st11'",
+        "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.0"
+      },
+      "ParentNode": {
+        "ObjectName": "GameTaskComposite_Flow'Task16_st11:GameTaskComposite_Flow_0'",
+        "ObjectPath": "Game/Content/Blueprints/LevelTask/Tasks/Task16/Task16_st11.1"
+      }
+    }
+  }
+]
