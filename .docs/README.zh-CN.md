@@ -27,7 +27,7 @@
 依据文件命名：
 
 - Universal - 全版本通用
-- WindowsNoEditor - 仅期望 Windows 下使用
+- WindowsNoEditor - 仅期望在 Windows 环境中使用
 
 ### 修补类型
 
