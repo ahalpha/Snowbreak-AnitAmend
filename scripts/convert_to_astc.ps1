@@ -1,11 +1,12 @@
 # Convert WindowsNoEditor uasset textures to ASTC for iOS
 # Pipeline: uasset (BC7/DXT) -> export TGA -> astcenc -> ASTC DDS -> inject -> uasset (ASTC)
-# Usage: .\scripts\convert_to_astc.ps1 [-AstcBlockSize 4x4] [-AstcQuality medium] [-OutBaseDir ".temp"]
+# Usage: .\scripts\convert_to_astc.ps1 [-AstcBlockSize 4x4] [-AstcQuality medium] [-OutBaseDir ".."] [-Only "Model-WindowsNoEditor"]
 
 param(
     [string]$AstcBlockSize = "4x4",
     [string]$AstcQuality   = "medium",
-    [string]$OutBaseDir    = "$PSScriptRoot\.."
+    [string]$OutBaseDir    = "$PSScriptRoot\..",
+    [string]$Only          = ""
 )
 
 $ErrorActionPreference = "Stop"
@@ -46,11 +47,16 @@ $ProjectRoot = "$PSScriptRoot\.."
 $sources = @{
     "Model-WindowsNoEditor\RawAssets" = "Model-IOS"
     "2D-WindowsNoEditor\RawAssets"    = "2D-IOS"
+    "Login-Universal\RawAssets"       = "Login-IOS"
+    "House-Universal\RawAssets"       = "House-IOS"
+    "Plot-Universal\RawAssets"        = "Plot-IOS"
+    "Scene-Universal\RawAssets"       = "Scene-IOS"
 }
 
-# Clean output dirs before starting
-foreach ($outName in $sources.Values) {
-    $dir = "$OutBaseDir\$outName"
+# Clean output dirs before starting (only for folders being processed)
+foreach ($srcKey in $sources.Keys) {
+    if ($Only -ne "" -and ($srcKey -split '\\')[0] -ne $Only) { continue }
+    $dir = "$OutBaseDir\$($sources[$srcKey])"
     if (Test-Path $dir) {
         Remove-Item $dir -Recurse -Force
         Write-Host "Deleted existing: $dir" -ForegroundColor DarkGray
@@ -58,11 +64,30 @@ foreach ($outName in $sources.Values) {
 }
 
 $total = 0; $success = 0; $skip = 0; $fail = 0
+$generatedDirs = @()
 
 foreach ($srcKey in $sources.Keys) {
-    $srcDir  = (Resolve-Path "$ProjectRoot\$srcKey").Path
+    if ($Only -ne "" -and ($srcKey -split '\\')[0] -ne $Only) { continue }
+
+    $srcPath = "$ProjectRoot\$srcKey"
+    if (-not (Test-Path $srcPath)) { continue }
+
+    # Derive the sibling ExtractedAssets dir (RawAssets -> ExtractedAssets)
+    $extractedDir = $srcPath -replace '\\RawAssets$', '\ExtractedAssets'
+    $hasTexture = $false
+    if (Test-Path $extractedDir) {
+        $hasTexture = [bool](Get-ChildItem -Path $extractedDir -Filter "*.json" -Recurse -ErrorAction SilentlyContinue |
+            Where-Object { (Get-Content $_.FullName -Raw -ErrorAction SilentlyContinue) -match '"PF_DXT|"PF_BC' })
+    }
+    if (-not $hasTexture) {
+        Write-Host "SKIP $srcKey (no DXT/BC textures found in ExtractedAssets)" -ForegroundColor DarkGray
+        continue
+    }
+
+    $srcDir  = (Resolve-Path $srcPath).Path
     $outName = $sources[$srcKey]
     $OutDir  = "$OutBaseDir\$outName"
+    $generatedDirs += $OutDir
 
     $uassets = Get-ChildItem -Path $srcDir -Filter "*.uasset" -Recurse
     Write-Host "`n=== $outName ($($uassets.Count) files) ===" -ForegroundColor Cyan
@@ -154,4 +179,4 @@ Write-Host "Total:   $total"
 Write-Host "Success: $success" -ForegroundColor Green
 Write-Host "Skipped: $skip"    -ForegroundColor DarkGray
 Write-Host "Failed:  $fail"    -ForegroundColor Red
-Write-Host "Output:  $OutBaseDir\Model-IOS, $OutBaseDir\2D-IOS"
+Write-Host "Output:`n$($generatedDirs -join "`n")"

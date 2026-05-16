@@ -43,6 +43,10 @@ $patches = [ordered]@{
     "Scene-Universal"        = "Scene-Universal\RawAssets\Game\Content"
     "Model-IOS"              = "Model-IOS\Game\Content"
     "2D-IOS"                 = "2D-IOS\Game\Content"
+    "Login-IOS"              = "Login-IOS\Game\Content"
+    "House-IOS"              = "House-IOS\Game\Content"
+    "Plot-IOS"               = "Plot-IOS\Game\Content"
+    "Scene-IOS"              = "Scene-IOS\Game\Content"
 }
 
 New-Item -ItemType Directory -Force -Path $OutDir | Out-Null

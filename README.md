@@ -208,6 +208,7 @@ Optional parameters:
 | `-AstcBlockSize` | `4x4` | ASTC block size (`4x4`, `6x6`, `8x8`, …) |
 | `-AstcQuality` | `medium` | Encoder quality (`fastest`, `fast`, `medium`, `thorough`, `exhaustive`) |
 | `-OutBaseDir` | project root | Base directory for `Model-IOS/` and `2D-IOS/` output |
+| `-Only` | _(all)_ | Process only one source folder, e.g. `-Only Model-WindowsNoEditor` |
 
 **Step 2 — Export all patches as pak files:**
 
