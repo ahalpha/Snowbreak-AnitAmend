@@ -88,6 +88,36 @@ Used to patch riki-related content.
 
 *Currently, only the above 8 patch types are available here.*
 
+### Installing Mods
+
+#### Using the Script
+
+> Since browsers may display the script content directly, please **right-click the link below** and select "Save link as…" to download the script file.
+
+[install.cmd](https://github.com/ahalpha/Snowbreak-AnitAmend/raw/refs/heads/master/install.cmd)
+
+After downloading, **double-click to run** the script and follow the on-screen instructions.
+
+#### Manual Installation
+
+1. **Get the mod files**  
+   Download the mod you need from the [Releases page](https://github.com/ahalpha/Snowbreak-AnitAmend/releases/latest).
+
+2. **Locate the game installation directory**  
+   - How to find the game installation folder?  
+     - **Xishanju Launcher**:  
+       Click the gear icon next to "Play" → Select "Game" from the sidebar → Click the "View" button next to "Game Installation Directory".  
+     - **Snowbreak Launcher**:  
+       Click the "☰" menu (three lines) next to "Play" → Select "Installation Location".
+
+3. **Create the mods folder**  
+   Navigate to the following path in order:  
+   `game` → `Game` → `Content` → `Paks`  
+   Then **create a new folder** named `mods` inside the `Paks` folder.
+
+4. **Install the mod**  
+   Copy or cut the mod file downloaded in step 1 and paste it into the newly created `mods` folder.
+
 ## Build
 
 1. Install [Unreal Engine](https://www.unrealengine.com/download).  
