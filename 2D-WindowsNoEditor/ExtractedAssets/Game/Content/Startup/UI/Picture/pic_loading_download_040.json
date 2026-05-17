@@ -1,0 +1,36 @@
+[
+  {
+    "Type": "Texture2D",
+    "Name": "pic_loading_download_040",
+    "Flags": "RF_Public | RF_Standalone | RF_Transactional | RF_WasLoaded | RF_LoadCompleted",
+    "Class": "UScriptClass'Texture2D'",
+    "Package": "Game/Content/Startup/UI/Picture/pic_loading_download_040",
+    "Properties": {
+      "ImportedSize": {
+        "X": 2400,
+        "Y": 1080
+      },
+      "LightingGuid": "C0645DE6-4CEC8659-25CF4BA4-53FC4AB3",
+      "LODGroup": "TEXTUREGROUP_UI",
+      "NeverStream": true
+    },
+    "SizeX": 2400,
+    "SizeY": 1080,
+    "PackedData": 1,
+    "PixelFormat": "PF_DXT1",
+    "FirstMipToSerialize": 0,
+    "Mips": [
+      {
+        "BulkData": {
+          "BulkDataFlags": "BULKDATA_SingleUse | BULKDATA_ForceInlinePayload",
+          "ElementCount": 1296000,
+          "SizeOnDisk": 1296000,
+          "OffsetInFile": "0x13CF7F"
+        },
+        "SizeX": 2400,
+        "SizeY": 1080,
+        "SizeZ": 1
+      }
+    ]
+  }
+]

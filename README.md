@@ -52,6 +52,7 @@ Used on top of the Basic Patch. Patches necessary static images, including tutor
 - [x] Includes CG & illustration patches
 - [x] Includes Live2D portrait patches
 - [x] Includes tutorial image patches
+- [x] Includes game entry loading image patches
 
 #### Login — Login Screen Patch
 Used to change the static login screen into a dynamic one.
