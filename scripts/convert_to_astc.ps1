@@ -76,8 +76,14 @@ foreach ($srcKey in $sources.Keys) {
     $extractedDir = $srcPath -replace '\\RawAssets$', '\ExtractedAssets'
     $hasTexture = $false
     if (Test-Path $extractedDir) {
-        $hasTexture = [bool](Get-ChildItem -Path $extractedDir -Filter "*.json" -Recurse -ErrorAction SilentlyContinue |
-            Where-Object { (Get-Content $_.FullName -Raw -ErrorAction SilentlyContinue) -match '"PF_DXT|"PF_BC' })
+        $uassetList = Get-ChildItem -Path $srcPath -Filter "*.uasset" -Recurse -ErrorAction SilentlyContinue
+        foreach ($ua in $uassetList) {
+            $relUa   = $ua.FullName.Substring(((Resolve-Path $srcPath).Path).Length).TrimStart('\')
+            $jsonPath = Join-Path $extractedDir ([System.IO.Path]::ChangeExtension($relUa, "json"))
+            if ((Test-Path $jsonPath) -and ((Get-Content $jsonPath -Raw -ErrorAction SilentlyContinue) -match '"PF_DXT|"PF_BC')) {
+                $hasTexture = $true; break
+            }
+        }
     }
     if (-not $hasTexture) {
         Write-Host "SKIP $srcKey (no DXT/BC textures found in ExtractedAssets)" -ForegroundColor DarkGray
