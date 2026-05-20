@@ -102,7 +102,16 @@ foreach ($srcKey in $sources.Keys) {
         $total++
 
         if ($file.Name -match "_skm\.uasset$") {
-            Write-Host "  SKIP  $($file.Name)" -ForegroundColor DarkGray
+            $rel     = $file.FullName.Substring($srcDir.Length).TrimStart('\')
+            $destDir = Join-Path $OutDir (Split-Path $rel)
+            if (-not (Test-Path $destDir)) { New-Item -ItemType Directory -Path $destDir -Force | Out-Null }
+            foreach ($ext in @("uasset", "uexp", "ubulk")) {
+                $src = [System.IO.Path]::ChangeExtension($file.FullName, $ext)
+                if (Test-Path $src) {
+                    Copy-Item $src (Join-Path $destDir ([System.IO.Path]::ChangeExtension($file.Name, $ext))) -Force
+                }
+            }
+            Write-Host "  COPY  $($file.Name) (skm)" -ForegroundColor DarkCyan
             $skip++
             continue
         }
